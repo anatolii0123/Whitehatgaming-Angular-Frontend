@@ -1,0 +1,160 @@
+<div class="row">
+    <ngb-carousel class="g-ngb-carousel">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="g-img-slide" src="/assets/img/slider/img1.png" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="g-img-slide" src="/assets/img/slider/img2.png" alt="Random second slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="g-img-slide" src="/assets/img/slider/img3.png" alt="Random third slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
+<div class="row">
+  <!-- <div class="col-md-6 col-sm-12">
+    <div class="g-category-wrapper">
+      <span class="g-category-item active">ALL</span>
+      <span class="g-category-item">Slots</span>
+      <span class="g-category-item">Table</span>
+    </div>
+  </div> -->
+  <div class="col-md-3 col-sm-6">
+    <label for="country">Country:</label>
+    <select #country id="country" class="form-control g-select-box" (change)="onChangeCountry(country.value)">
+      <option *ngFor="let country of countries" [value]="country.code">{{ country.country }}</option>
+    </select>
+  </div>
+  <div class="col-md-3 col-sm-6">
+    <label for="brand">Brand:</label>
+    <select #brand id="brand" class="form-control g-select-box" (change)="getCategories(brand.value)">
+      <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.brand }}</option>
+    </select>
+  </div>
+  <div class="col-md-3 col-sm-6">
+    <label for="category">Category:</label>
+    <select #category id="category" class="form-control g-select-box" (change)="getGames(category.value)">
+      <option value="all">All</option>
+      <option *ngFor="let category of categories">{{ category.category }}</option>
+    </select>
+  </div>
+  <!-- <div class="col-md-3 col-sm-6">
+    <ng-multiselect-dropdown
+      [placeholder]="'Select categories'"
+      [settings]="dropdownSettings"
+      [data]="categories"
+      [(ngModel)]="selCategories"
+    >
+    </ng-multiselect-dropdown>
+  </div> -->
+</div>
+<div class="row mt-md-2 g-casino-group">
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4" *ngFor="let game of games">
+        <div style="background-image: url('https://stage.whgstage.com/scontent/images/games/{{game.launchcode}}.jpg')" class="g-img-game">
+          <span class="g-item-hot" *ngIf="game.hot">Hot</span>
+          <span class="g-item-new" *ngIf="game.new">New</span>
+        </div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame(game.launchcode, game.game_provider_name, game.rtp)">Play For Real</button>
+          </div>
+          <div class="g-name-wrapper">
+            <span>{{game.name}}</span>
+          </div>
+
+        </div>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="g-prev-icon" size="50" height="50" width="50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M389.094 253.12H122.962a101.945 101.945 0 1 0 89.208 151.258h87.66a101.945 101.945 0 1 0 89.264-151.258zM165.69 362.62h-30.137v30.138h-31.618V362.62h-30.14v-31.618h30.13v-30.128h31.617v30.128h30.15v31.618zm190.996 7.136a17.932 17.932 0 1 1 17.91-17.932 17.932 17.932 0 0 1-17.92 17.932zm40.922 40.923a17.932 17.932 0 1 1 17.92-17.922 17.932 17.932 0 0 1-17.93 17.92zm0-81.858a17.932 17.932 0 1 1 17.932-17.932 17.932 17.932 0 0 1-17.943 17.944zm40.923 40.923a17.932 17.932 0 1 1 17.933-17.932 17.932 17.932 0 0 1-17.932 17.943zM260.546 18.99h19.603c3.986 10.57 5.16 20.326 3.512 29.235-4.043 22.392-24.052 35.367-43.44 47.912-21.625 14.025-42.04 27.282-40.472 52.204 1.694 26.9 18.407 40.89 36.135 55.705 10.682 8.943 21.997 18.417 29.36 31.008h-22.2c-5.218-5.816-11.688-11.292-18.746-17.153-18.914-15.81-40.346-33.786-42.537-68.42-2.258-35.467 24.843-53.015 48.67-68.497 16.88-10.942 32.814-21.342 35.513-36.02 1.377-7.34-.407-15.923-5.398-25.973z"></path>
+        </svg>
+    </div>
+    <!-- <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXCROCODOPOLIS.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXDOCTORLOVE.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXMADMADMONKEY.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXBANGKOKNIGHTS.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXBIGFOOT.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXRAMESESSRICHES.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXCALLOFTHECOLOSSEUM.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXCHERRYBLOSSOMS.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div>
+    <div class="g-game-item col-lg-2 col-md-3 col-sm-4">
+        <div style="background-image: url('/assets/img/games/NYXDOLPHINREEF.jpg')" class="g-img-game"></div>
+        <div class="g-game-item-inner">
+          <div class="g-button-wrapper">
+            <button class="btn btn-primary" (click)="onClickGame()">Play For Real</button>
+          </div>
+        </div>
+    </div> -->
+</div>

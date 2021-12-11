@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    color: white !important
+}
+.blue-dark-layout {
+    background: #262c49;
+}
+.blue-dark-layout .navbar {
+    background: #10163a !important;
+}
+.multiselect-dropdown .dropdown-btn {
+    display: flex !important;
+    align-items: center;
+    border-radius: 25px !important;
+    border-color: #10163a !important;
+    background: #10163a;
+    height: 50px;
+    padding-left: 20px !important
+}
+.multiselect-dropdown .dropdown-btn:active {
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%) !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item {
+    border-radius: 25px !important;
+}
+.multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret {
+    top: 9px !important;
+}
+.multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret::before {
+    border-width: 5px 5px 0 !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+    background: none !important;
+    border: 0px !important;
+    max-width: 80px !important;
+    display: flex;
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item:hover {
+    box-shadow: none !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item a {
+    display: none;
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item span {
+    white-space: nowrap !important;
+}
+.dropdown-list {
+    background: #10163a !important;
+    border: 0px !important;
+}
+.dropdown-list .filter-textbox {
+    border-bottom-color: #0293cc !important;
+}
+.dropdown-list .filter-textbox input {
+    background: #10163a;
+    color: white;
+}
+.multiselect-item-checkbox {
+    border-bottom-color: #0293cc !important;
+}
+.multiselect-item-checkbox div {
+    color: white !important
+}
+.multiselect-item-checkbox:hover {
+    background: #262c49 !important;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #aca8db;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    opacity: .8;
+}
