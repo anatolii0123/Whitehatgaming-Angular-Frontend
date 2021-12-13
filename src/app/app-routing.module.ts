@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CasinoComponent } from './components/casino/casino.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'casino', pathMatch: 'full' },
+  { path: '', component: CasinoComponent, pathMatch: 'full' },
   { path: 'casino', component: CasinoComponent }
 ];
 
